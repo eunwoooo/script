@@ -4,22 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>최대공약수 구하기</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+  }
+</style>
 </head>
 <body>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 32px;
-    }
-  </style>
-  <script src="js/윤은우2번째과제.js"></script>
+    <script>
+      //먼저 숫자를 입력받는게 첫 번째 단계이기에에 익명함수가 코드의 시작이 아니다.
+      //쉽게 설명해서 c에서의 printf , scanf_s가 같이 쓰이는게 parseInt , prompt 같이 쓰이는 느낌낌
+      const num1 = parseInt(prompt("첫번 째 수를 입력하세요:")); //prompt로 입력받은건 문자열이고 숫자를 입력받아야하기
+      const num2 = parseInt(prompt("두번 째 수를 입력하세요:")); //때문에 parslInt라는 내장함수가 쓰이는 것이다. (문자열을 숫자로 변환함) 
+
+      //숫자를 입력받았으니 익명함수를 사용해서 코드를 이어나간다.
+      const GCD = function(a, b) { //let함수나 const함수에 function이 같이 들어가면 이는 익명함수
+        let GCD = 1;
+        for(let i = 1; i <= Math.min(a,b); i++) {
+          if(a % i === 0 && b & i === 0) num = i; 
+          //if를 사용하는 이유는 공약수인지 확인해야하니까. 공약수는 나머지가 0이여야하는데 두 숫자의 공약수이니까 if문을 사용해서 조건이 만족하는지 확인을 해야하기때문임
+        } //Math.min 함수를 사용하는 이유 설명: 작은 값을 반환하는 함수이기에 12,18이라면 12를 반환해 반복문 실행 
+          if (a % i === 0 && b % i === 0) {
+            GCD = i; //이 코드를 사용하는 이유는 조건이 참이면 i가 두 숫자의 공약수임을 의미하니까까
+          } //그 공약수 i를 GCD에 저장하기위해서임임
+          //반복문과 반환은 상호 보완적인 역할을 함
+        }
+    </script>
 </body>
 </html>
